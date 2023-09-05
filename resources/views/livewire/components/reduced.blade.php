@@ -1,0 +1,3 @@
+<div>
+    {{ $reductions->count() }}
+</div>
