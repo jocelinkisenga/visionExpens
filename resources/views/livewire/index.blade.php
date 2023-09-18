@@ -76,8 +76,7 @@
                             </a>
                         </div>
                         <div class="search-input">
-                            <a class="btn btn-searchset"><img src="assets/img/icons/search-white.svg"
-                                    alt="img"></a>
+                            <a class="btn btn-searchset"><img src="assets/img/icons/search-white.svg" alt="img"></a>
                         </div>
                     </div>
                     <div class="wordset">
@@ -166,7 +165,7 @@
                                         <a href="productlist.html">{{ $item->name }}</a>
                                     </td>
                                     <td>{{ $item->quantity }}</td>
-                                    <td>{{ $item->price }} $</td>
+                                    <td>{{ $item->price }} fc</td>
                                     <td>@livewire('buttonbuy', ['product_id' => $item->id])</td>
                                 </tr>
                             @endforeach

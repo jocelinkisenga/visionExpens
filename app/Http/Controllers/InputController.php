@@ -39,11 +39,11 @@ class InputController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function search(Request $request){
-        $result = $this->stock->output($request->from, $request->to);
+        $result = $this->stock->rapport($request->from, $request->to);
         $from = $request->from;
         $to = $request->to;
         $data = $result["results"];
-        
+
         return view("Pages.rapport.entries",compact('data','from','to'));
     }
 }

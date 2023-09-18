@@ -1,6 +1,6 @@
 @extends('layouts.new')
 @if ($from != null and $to != null)
-@section("title", 'rapport du '.$from.' au '.$to)
+    @section('title', 'rapport du ' . $from . ' au ' . $to)
 @endif
 @section('content')
 
@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-top">
-                       <h2 class="text-uppercase text-bold text-success"> filtrer par date</h2>
+                        <h2 class="text-uppercase text-bold text-success"> filtrer par date</h2>
 
                         {{-- <div id="example1_wrapper"></div> --}}
                     </div>
@@ -36,7 +36,7 @@
 
                                         <div class="form-group">
                                             <div class="input-groupicon">
-                                                <input type="date" name="from" >
+                                                <input type="date" name="from">
                                                 {{-- <div class="addonset">
                                                 <img src="assets/img/icons/calendars.svg" alt="img">
                                             </div> --}}
@@ -55,9 +55,8 @@
                                     </div>
                                     <div class="col-lg-1 col-sm-6 col-12 ms-auto">
                                         <div class="form-group">
-                                            <button class="btn btn-filters bg-success ms-auto" type="submit"
-                                                ><img src="assets/img/icons/search-whites.svg"
-                                                    alt="img"></button>
+                                            <button class="btn btn-filters bg-success ms-auto" type="submit"><img
+                                                    src="assets/img/icons/search-whites.svg" alt="img"></button>
                                         </div>
                                     </div>
 
@@ -144,71 +143,76 @@
 
         <section class="content">
             <div class="container-fluid">
-              <div class="row">
-                <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
 
-                  <!-- /.card -->
+                        <!-- /.card -->
 
-                  <div class="card">
-                    <div class="card-header">
-                      <h3 class="card-title">rapport du </h3>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">rapport du </h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            </th>
+                                            <th>N°</th>
+                                            <th>produit</th>
+                                            <th>Entrée-quantité</th>
+                                            <th>prix</th>
+                                            <th>Sortie-quantité</th>
+                                            <th>sTotal-vente</th>
+                                            <th>date</th>
+                                        </tr>
+                                    </thead>
+                                    @isset($data)
+
+
+
+                                        <tbody>
+                                            @foreach ($data as $key => $item)
+                                                <tr>
+                                                    <td>
+                                                        {{ $key + 1 }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->name }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->new_quantity }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->price }} fc
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->order_quantity }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->order_quantity * $item->price }} fc
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->created_at }}
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                    @endisset
+
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
                     </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                      <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                          <tr>
-                          </th>
-                          <th>N°</th>
-                          <th>produit</th>
-                          <th>n-quantité</th>
-                          <th>prix</th>
-                          <th>a-quantité</th>
-                          <th>date</th>
-                      </tr>
-                        </thead>
-                        @isset($data)
-                        <tbody>
-                            @foreach ($data as $key => $item)
-                            <tr>
-                                <td>
-                                    {{ $key + 1 }}
-                                </td>
-                                <td>
-                                    {{ $item->name }}
-                                </td>
-                                <td>
-                                    {{$item->order_quantity}}
-                                </td>
-                                <td>
-                                    {{$item->price}}
-                                </td>
-                                <td>
-
-                                </td>
-                                <td>
-                                    {{$item->created_at}}
-                                </td>
-                                <td>
-                                </td>
-                            </tr>
-                        @endforeach
-
-                          </tbody>
-                        @endisset
-
-                      </table>
-                    </div>
-                    <!-- /.card-body -->
-                  </div>
-                  <!-- /.card -->
+                    <!-- /.col -->
                 </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
+                <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
-          </section>
+        </section>
 
     </div>
 

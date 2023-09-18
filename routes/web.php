@@ -63,7 +63,7 @@ Route::middleware(['auth'])->group(function(){
 
 
 Route::get('/produit-detail/{id}',[ProductController::class,'show'])->name('product-detail');
-
+    Route::get("/productDelete/{id}",[ProductController::class,'delete'])->name("product.delete");
     Route::get("/rapports",[RapportController::class,'index'])->name('rapports');
     Route::post("/search",[RapportController::class,'search'])->name('search');
 

@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">votre panier  </h5><span class="ml-6">{{\CartFacade::getTotal()}}$ total</span>
+                <h5 class="modal-title">votre panier  </h5><span class="ml-6">{{\CartFacade::getTotal()}}fc total</span>
                 <button wire:click.prevent="store_order()" class="bg-success text-white border-white border-raduis-5">confirmer</button>
 
 
@@ -16,9 +16,9 @@
                     <div class="col-2">{{$item->name}}</div>
                     <div class="col-2">{{$item->quantity}}</div>
                     <div class="col-4"><span><button wire:click.prevent="minus({{ $item->id }})" class="bg-primary text-white"><i class="fa fa-minus"></i></button></span>
-                        <input type="text" wire:model.defer="input_quantity" value="{{$item->quantity}}" class="" style="width:15%;">
+                        {{-- <input type="text" wire:model.defer="input_quantity" value="{{$item->quantity}}" class="" style="width:15%;"> --}}
                         <span><button wire:click.prevent="plus({{ $item->id }})" class="bg-primary text-white"><i class="fa fa-plus"></i></button></span></div>
-                    <div class="col-2">{{$item->quantity * $item->price}} $</div>
+                    <div class="col-2">{{$item->quantity * $item->price}} fc</div>
                     <div class="col-2"><button wire:click="delete({{$item->id}})"><i class="fa fa-window-close text-danger"></i></button></div>
                     <div class="col-2"></div>
                 </div>

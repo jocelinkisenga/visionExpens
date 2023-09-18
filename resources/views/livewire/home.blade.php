@@ -182,7 +182,7 @@
                                     <div class="row ">
                                         @foreach (Produit::whereCategorie_id($item->id)->get() as $produit)
                                             <div class="col-lg-3 col-sm-6 d-flex"
-                                            
+
                                                 wire:click.prevent="ajouter( {{ $produit->id }})"
                                                     @if ($produit->quantity <= 0) onClick="Swal.fire(
                                                     'oups !!',
@@ -202,7 +202,7 @@
                                                     <div class="productsetcontent">
                                                         <h5>{{ $produit->categorie->name }}</h5>
                                                         <h4>{{ $produit->name }}</h4>
-                                                        <h6>{{ $produit->price }} $</h6>
+                                                        <h6>{{ $produit->price }} fc</h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -212,7 +212,7 @@
                                 </div>
                             @endforeach
 
-                        
+
 
                         </div>
                     </div>
@@ -700,7 +700,7 @@
                                             @if(!empty($precommandes))
                                             @foreach ($precommandes as $item)
                                             <tr>
-                                               
+
                                                 <td>
                                                     <form>
                                                     <button  class="btn btn-success"
@@ -829,17 +829,17 @@
                     <ul class="nav nav-tabs" id="myTabs" role="tablist">
                         @if (!empty($invoce))
                         <li class="nav-item" role="presentation">
-                           
+
                             <button class="nav-link " class="btn btn-primary" style="background-color: blue; color:white"
-                              onclick="printDiv()" 
-                                id="purchase-tab" data-bs-toggle="tab" data-bs-target="#purchase" 
+                              onclick="printDiv()"
+                                id="purchase-tab" data-bs-toggle="tab" data-bs-target="#purchase"
                                 aria-controls="purchase" aria-selected="true" role="tab">imprimer</button>
-                               
+
                         </li>
                         @if ($invoce[0]->invoiced == 0)
                         <li class="nav-item" style="margin-left: 16px"><button wire:click="invoice({{$invoce[0]->pId}})" class="ml-4 btn btn-success">facturer</button></li>
                         @endif
-                       
+
                         @endif
                     </ul>
                     <div class="justify-center row" id="printDiv">
@@ -909,19 +909,19 @@
                                 @if ($invoce != null and $invoce[0]->pourcentage > 0)
                                 <div class="bg-white card-footer">
                                     <p class="mb-0"><span class="text-uppercase font-weight-bold">reduction :
-                                           
+
                                               {{ ($facture_total / 100) * $invoce[0]->pourcentage }} $
-                                            
+
                                         </span></p>
                                 </div>
                                 @endif
                                 <div class="bg-white card-footer">
                                     <p class="mb-0"><span class="text-uppercase font-weight-bold">Total :
                                         @if ($invoce != null and $invoce[0]->pourcentage != 0)
-                                         
-                                        
+
+
                                              <?= $facture_total - ($facture_total / 100) * $invoce[0]->pourcentage; ?> $
-                                            
+
                                         @else
                                             {{$facture_total }} $
                                         @endif
@@ -1059,10 +1059,10 @@ aria-hidden="true">
                                     <strong>avenue :</strong> square 23,67 <br>
                                     <strong>contact :</strong> +243 994 445 56 <br>
                                     <strong>code :</strong>
-                          
+
                                     @if (empty($facture))
-                                
-                                     
+
+
                                     @else
                                     {{ $facture[0]->code }}
                                     @endif
@@ -1127,10 +1127,10 @@ aria-hidden="true">
                         <div class="bg-white card-footer">
                             <p class="mb-0"><span class="text-uppercase font-weight-bold">Total :
                                 @if ($facture != null and $facture[0]->pourcentage != 0)
-                                 
-                                
+
+
                                      <?= $facture_total - ($facture_total / 100) * $facture[0]->pourcentage; ?> $
-                                    
+
                                 @else
                                     {{$facture_total }} $
                                 @endif
@@ -1207,15 +1207,15 @@ aria-hidden="true">
                                                             wire:click="reduction_facture({{ $item->precommande->id }})">
                                                             <img src="assets/img/icons/eye.svg" alt="img">
                                                         </button>
-                                                           
-                                                
+
+
                                                     </td>
                                                     <td>
-                                                    
-                                                           
+
+
                                                         <button  class="btn btn-warning btn-sm"
                                                         wire:click="confirm_reduction({{$item->id}})">confirmer</button>
-                                                        
+
                                                     </td>
                                                 </tr>
                                             @endforeach

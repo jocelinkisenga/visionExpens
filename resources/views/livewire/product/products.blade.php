@@ -118,11 +118,12 @@
                                 </td>
                                 <td>{{$item->categorie->name}}</td>
                                 <td ><span class="bg-success text-white p-1 rounded-pill">{{$item->quantity}}</span></td>
-                                <td>{{$item->price}} $</td>
+                                <td>{{$item->price}} fc</td>
                                 <td>
-                                    <a class="me-3" href="{{route('product-detail',['id'=>$item->id])}}">
+                                    <a class="me-3" href="{{route('product-detail',['id'=>$item->id])}}" title="voir les détails">
                                         <img src="assets/img/icons/eye.svg" alt="img">
                                     </a>
+                                    <a href="{{route('product.delete',['id'=>$item->id])}}" class="me-3 bg-danger text-white p-1" ><i class="fa fa-window-close"></i></a>
                                 </td>
                             </tr>
                             @endforeach

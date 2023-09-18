@@ -113,7 +113,7 @@
                                 <td >
                                     {{$item->user_name}}
                                 </td>
-                                <td>{{$item->montant}} $</td>
+                                <td>{{$item->montant}} fc</td>
                                 <td>{{$item->motif}}</td>
                             </tr>
                             @endforeach

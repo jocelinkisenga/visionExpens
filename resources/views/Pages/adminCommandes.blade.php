@@ -56,7 +56,7 @@
                         <td>{{$item->total_products}}
                         </td>
                         <td>
-                            {{$item->total_price}}
+                            {{$item->total_price}} fc
                         </td>
                         <td>
                             {{$item->created_at}}
